@@ -114,7 +114,7 @@ if (isset($_POST['login'])) {
                     ?>
                 </div>
                 <div class="label-form">
-                    <label>Username 2</label><br>
+                    <label>Username</label><br>
                     <input class="input" value="<?php echo htmlspecialchars($username, ENT_QUOTES, 'UTF-8') ?>" type="text" name="username" id="report" onkeyup="myFunction()">
                 </div>
                 <div class="label-form">
