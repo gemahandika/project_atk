@@ -1,0 +1,176 @@
+*{
+    font-family: 'Rubik', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* background: #105e1d; */
+}
+.content-label{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    height: 87vh;
+    background: #d8ecea;
+}
+.form{
+    border-radius: 10px;
+    background: #0c9ba5;
+    display: flex;
+    padding: 5px;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.label-profile{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    border-bottom: 2px solid rgb(255, 255, 255);
+}
+.label-profile h2{
+    color: white;
+    font-weight: 600;
+}
+h2 .photo{
+    height: 50px;
+}
+
+/* ========= Halaman Home =========== */
+.form-saldo{
+    text-align: center;
+    border-radius: 8px;
+    color: rgb(0, 0, 0);
+    /* margin-top: 5px; */
+    /* height: 100%; */
+    /* background: #000; */
+}
+.form-saldo a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    
+}
+.form-saldo a h6{
+    font-weight: 600;
+    font-size: x-large;
+}
+
+.card-content{
+    display: flex;
+    background: #ffffff;
+    margin: 10px;
+    margin-top: 80px;
+    border-radius: 10px;
+    flex-direction: column;
+}
+.card-content-menu1{
+    display: flex;
+}
+.card-home{
+    text-decoration: none;
+    margin-top: 5px;
+    width: 25%;
+    border-radius: 10px;
+    text-align: center;
+    padding:3px;
+}
+.card-label a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+.card-home a .photo-menu{
+    height: 45px;
+    
+}
+.card-home a h6{
+    font-size: smaller;
+    color: black;
+}
+
+.card-info{
+    background: #fefeff;
+    height: 150px;
+    margin: 40px;
+    border-radius: 30px;
+    color: black;
+}
+
+/* =================== Halaman Notif ====================== */
+.container-all{
+    overflow-x: scroll;
+    margin-bottom: 30px;
+}
+.container-notif{
+    border-bottom: solid 1px black;
+}
+.container-notif a{
+    text-decoration: none;
+    color: rgb(5, 5, 5);
+    display: flex;
+}
+
+.form-notif{
+    margin: 10px;
+}
+.form-notif .photo-footer{
+    opacity: 0.5;
+    height: 45px;
+    margin-top: 25px;
+}
+.content-notif{
+    margin-top: 10px;
+    /* border: solid 1px black; */
+}
+.judul-notif{
+    font-weight: 600;
+    color: red;
+}
+.isi-notif{
+    font-size: small;
+}
+.isi-tgl{
+    font-size: small;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    /* padding-top: 25px; */
+}
+
+/* ================ awal footer ============= */
+
+.form-content{
+    display: flex;
+    bottom:0;
+    position: absolute;
+    width: 100%;
+    border: solid 1px black;
+    background: #a9fafa;
+    padding-left: 3px;
+    
+}
+.card-label{
+    text-decoration: none;
+    /* margin: 5px; */
+    width: 25%;
+    border-radius: 10px;
+    text-align: center;
+    padding-top: 5px;
+}
+.card-label a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+.card-label a .photo-footer{
+    opacity: 0.7;
+    height: 35px;
+}
+.card-label a h6{
+    font-weight: 600;
+    font-size: small;
+}
+
+/* ========= Akhir footer =========== */
+
+
+

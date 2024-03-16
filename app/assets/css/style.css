@@ -1,0 +1,905 @@
+* {
+    font-family: 'Rubik', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@media(max-width: 600px) {
+    .home-section {
+        display: none;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .danger a {
+        text-decoration: none;
+        background: #000;
+        color: wheat;
+        text-align: center;
+        font-weight: 600;
+    }
+}
+
+@media(min-width: 600px) {
+    .danger {
+        display: none;
+    }
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 260px;
+    background-color: rgb(32, 29, 29);
+    z-index: 100;
+    transition: all 0.5s ease;
+}
+
+.sidebar.close {
+    width: 78px;
+}
+
+.sidebar .logo-details {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: rgb(1, 31, 39);
+    border-radius: 10px;
+    padding-top: 5px;
+    /* margin-top: 15px; */
+}
+
+.sidebar .logo-details img {
+    height: 55px;
+    margin-left: 15px;
+
+}
+
+.sidebar.close .logo-details img {
+    transition-delay: 0s;
+    margin-left: -145px;
+}
+
+.sidebar .logo-details .logo_name {
+    font-size: 22px;
+    color: rgb(255, 255, 255);
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    transition: 0.3s ease;
+    transition-delay: 0.1s;
+    padding-left: 15px;
+    margin-left: 6px;
+}
+
+.sidebar.close .logo-details .logo_name {
+    transition-delay: 0s;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.sidebar .nav-link {
+    height: 100%;
+    padding: 20px 0 150px 0;
+    overflow: auto;
+}
+
+.sidebar.close .nav-link {
+    overflow: visible;
+}
+
+.sidebar .nav-link::-webkit-scrollbar {
+    display: none;
+}
+
+.sidebar .nav-link li {
+    position: relative;
+    list-style: none;
+    transition: all 0.4s ease;
+}
+
+.sidebar .nav-link li:hover {
+    background: #292828;
+}
+
+.sidebar .nav-link li .icon-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sidebar.close .nav-link li .icon-link {
+    display: block;
+}
+
+.sidebar .nav-link li i {
+    height: 40px;
+    min-width: 78px;
+    text-align: center;
+    line-height: 40px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.sidebar .nav-link li.showMenu i.arrow {
+    transform: rotate(-180deg);
+}
+
+.sidebar.close .nav-link i.arrow {
+    display: none;
+}
+
+.sidebar .nav-link li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.sidebar .nav-link li a .link_name {
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+}
+
+.sidebar.close .nav-link li a .link_name {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.sidebar .nav-link li .sub-menu {
+    padding: 6px 6px 14px 80px;
+    margin-top: 1px;
+    background: #282829;
+    display: none;
+}
+
+.sidebar .nav-link li.showMenu .sub-menu {
+    display: block;
+}
+
+.sidebar .nav-link li .sub-menu a {
+    color: white;
+    font-size: 14px;
+    padding: 7px 0 10px 17px;
+    white-space: nowrap;
+    opacity: 0.6;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.sidebar .nav-link li .sub-menu a:hover {
+    opacity: 1;
+    font-size: 16px;
+}
+
+.sidebar.close .nav-link li .sub-menu {
+    position: absolute;
+    left: 100%;
+    top: -10px;
+    margin-top: 0;
+    padding: 10px 20px;
+    border-radius: 0 6px 6px 0;
+    opacity: 0;
+    display: block;
+    pointer-events: none;
+    transition: 0s;
+}
+
+.sidebar.close .nav-link li:hover .sub-menu {
+    top: 0;
+    opacity: 1;
+    pointer-events: auto;
+    transition: all 0.7s ease;
+}
+
+.sidebar .nav-link li .sub-menu .link_name {
+    display: none;
+}
+
+.sidebar.close .nav-link li .sub-menu .link_name {
+    font-size: 12px;
+    opacity: 1;
+    display: block;
+}
+
+.sidebar .nav-link li .sub-menu.blank {
+    opacity: 1;
+    pointer-events: auto;
+    padding: 2px 20px 3px 16px;
+    opacity: 0;
+    pointer-events: none;
+
+}
+
+.sidebar .nav-link li:hover .sub-menu.blank {
+    top: 10%;
+    transform: translate(-10%);
+}
+
+.sidebar .profile-details {
+    position: fixed;
+    bottom: 0;
+    width: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #1b272d;
+    padding: 6px 0 4px 8px;
+    transition: all 0.4s ease;
+}
+
+.sidebar.close .profile-details {
+    background: none;
+}
+
+.sidebar.close .profile-details {
+    width: 78px;
+}
+
+.sidebar .profile-details .profile-content {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar .profile-details img {
+    height: 40px;
+    width: 36px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 0 14px 0 12px;
+    background: #d7d9e4;
+    transition: all 0.5s ease;
+}
+
+.sidebar.close .profile-details img {
+    padding: 6px;
+}
+
+.sidebar .profile-details .profile_name,
+.sidebar .profile-details .job {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.sidebar.close .profile-details i,
+.sidebar.close .profile-details .profile_name,
+.sidebar.close .profile-details .job {
+    display: none;
+}
+
+.sidebar .profile-details .job {
+    font-size: 10px;
+}
+
+.home-section {
+    position: relative;
+    left: 260px;
+    height: 100%;
+    width: calc(100% - 260px);
+    transition: all 0.5s ease;
+}
+
+.sidebar.close~.home-section {
+    left: 70px;
+    width: calc(100% - 78px);
+}
+
+.home-section .home-content {
+    height: 60px;
+    width: 100%;
+    background: #232222;
+    display: flex;
+    align-items: center;
+}
+
+.home-section .home-content .fa-bars,
+.home-section .home-content .text {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+}
+
+.home-section .home-content .fa-bars {
+    margin: 0 15px;
+    cursor: pointer;
+}
+
+.home-section .home-content .text {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.sidebar .logo-details1 {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background: rgb(38, 46, 58);
+    border-radius: 10px;
+    margin-top: 19px;
+}
+
+.sidebar .logo-details1 img {
+    height: 10px;
+
+}
+
+.sidebar .logo-details1 i {
+    font-size: 30px;
+    color: rgb(10, 10, 10);
+    height: 50px;
+    min-width: 78px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.sidebar .logo-details1 .photo {
+    height: 55px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.sidebar .logo-details1 .logo_name {
+    font-size: 20px;
+    color: white;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    transition: 0.3s ease;
+    transition-delay: 0.1s;
+}
+.sidebar .logo-details1 .logo_name h6{
+    text-transform:uppercase;
+}
+.sidebar.close .logo-details1 .logo_name {
+    transition-delay: 0s;
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+
+/*================================================= akhir sidebar ================================ */
+
+/* ===============================================Halaman Dashboard ===============================*/
+.content-dashboard {
+    display: flex;
+    background: #ffffff;
+    padding: 12px;
+    flex-direction: column;
+    margin: 5px;
+}
+
+.form {
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+}
+
+.container-card {
+    margin-top: 15px;
+    margin-left: 3px;
+    margin-bottom: 13px;
+    color: rgb(255, 255, 255);
+    padding: 5px;
+    padding-top: 15px;
+    width: 250px;
+    text-align: center;
+    flex-direction: column;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+#request {
+    background: #685d1f;
+}
+
+#masuk {
+    background: #68281f;
+}
+
+#approve {
+    background: #2e681f;
+}
+
+#dikirim {
+    background: #1f6864;
+}
+
+#diterima {
+    background: #1f4168;
+}
+
+#anggota {
+    background: #cf0505;
+}
+
+#tb_barang {
+    background: #5e4803;
+}
+
+.card-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    padding-right: 3px;
+}
+
+.form-saldo h4 {
+    font-weight: 600;
+    color: white;
+}
+
+.form-saldo a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.form-pemasukan {
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+    margin-top: 5px;
+    width: 25%;
+    height: 130px;
+    background: rgb(2, 122, 143);
+    text-align: center;
+    padding-top: 5px;
+    display: flex;
+    justify-content: space-around;
+}
+
+h3 {
+    font-weight: 600;
+    color: white;
+}
+
+.form i {
+    margin-top: 20px;
+    font-size: 65px;
+    opacity: 0.5;
+    color: rgb(243, 232, 232);
+}
+
+.form a {
+    text-decoration: none;
+    color: rgb(255, 248, 248);
+    font-weight: 600;
+}
+
+.form-pengeluaran {
+    margin-left: 3px;
+    background: #9c0000;
+    color: rgb(255, 255, 255);
+    margin-top: 5px;
+    padding: 5px;
+    padding-top: 20px;
+    width: 25%;
+    text-align: center;
+    flex-direction: column;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.form-anggota {
+    margin-left: 3px;
+    background: #009c8f;
+    color: rgb(255, 255, 255);
+    margin-top: 5px;
+    padding: 5px;
+    padding-top: 20px;
+    width: 25%;
+    text-align: center;
+    flex-direction: column;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.dashboard-grafik {
+    display: flex;
+    margin: 5px;
+    flex-wrap: wrap;
+}
+
+.form-grafik {
+    width: 49.5%;
+    background: #edeaea;
+    margin: 3px;
+}
+
+canvas {
+
+    height: 270px;
+    margin: 5px;
+}
+
+/* =====================================================Akhir Dashboard===================================== */
+
+/* HALAMAN REQUEST */
+.content-table {
+    font-weight: 600;
+    font-size: 13px;
+    margin: 10px;
+    padding: 3px;
+}
+
+.content-table a {
+    text-decoration: none;
+}
+
+.content-table h4 {
+    margin-left: 25px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.content-table h5 {
+    border-bottom: 2px solid rgb(143, 141, 141);
+    margin-bottom: 15px;
+}
+
+.content-table .form-action {
+    background: #d8d2d2;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    font-weight: 600;
+}
+
+.content-table .form-approve {
+    border-bottom: 2px solid rgb(143, 141, 141);
+    background: #ffffff;
+    padding: 5px;
+    padding-right: 25px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    margin-top: 25px;
+}
+
+.content-table .form-action .form-req {
+    margin-left: 10px;
+
+}
+
+.content-table .form-action .btn {
+    margin-left: 20px;
+    margin-top: 35px;
+}
+
+.content-table .form-action .form-req .form-label {
+    font-size: large;
+}
+
+.content-table .form-action .form-req .form-select {
+    width: 380px;
+}
+
+.content-table .action {
+    font-size: smaller;
+    font-weight: 600;
+}
+
+.content-table .hapus {
+    margin: 10px;
+}
+
+.content-table .form-action button {
+    margin-right: 5px;
+    margin-left: 5px;
+    font-weight: 600;
+}
+
+.content-table .form-action a {
+    font-weight: 600;
+    margin-right: 5px;
+    color: white;
+}
+
+
+
+/* ================= Header table ================== */
+.keluar {
+    background: #3d3d76;
+    font-weight: 600;
+    color: white;
+}
+
+.masuk {
+    background: #6b3157;
+    font-weight: 600;
+    color: white;
+}
+
+.produk {
+    background: #25580d;
+    font-weight: 600;
+    color: white;
+}
+
+.user {
+    background: #580d52;
+    font-weight: 600;
+    color: white;
+}
+
+.aktivasi {
+    background: rgb(16, 62, 80);
+    font-weight: 600;
+    color: white;
+}
+
+/* ================= Akhir Header table ================== */
+
+.modal-header {
+    font-weight: 600;
+    background: #14773d;
+    color: white;
+}
+
+.modal-keluar {
+    font-weight: 600;
+    background: #771414;
+    color: white;
+}
+
+.report-it .label-1 {
+
+    padding: 3px;
+    margin: 3px;
+    color: black;
+    font-weight: 600;
+}
+
+.report-it .label-2 label {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    margin: 3px;
+}
+
+.report-it .label-1 input {
+    border-radius: 5px;
+    width: 80%;
+    margin-bottom: 2px;
+    font-weight: 600;
+    padding-left: 3px;
+}
+
+.report-it .label-1 .dept-1 {
+    border-radius: 5px;
+    width: 80%;
+    margin-bottom: 3px;
+    font-weight: 600;
+    padding-left: 3px;
+}
+
+/* ======================================= approve======================= */
+.content-table .content-approve {
+    background: #fdfdfd;
+    padding: 5px;
+}
+
+.approve-iuran {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: end;
+    padding-right: 30px;
+}
+
+.approve-iuran .a {
+    background: #000;
+    margin: 15px;
+}
+
+.zoomable {
+    width: 100px;
+    height: 100px;
+}
+
+.tombol {
+    margin-right: 5px;
+}
+
+.btn-download {
+    background: #cacacb;
+    height: 40px;
+    width: 115px;
+    display: flex;
+    margin: 5px;
+    align-items: center;
+}
+
+.btn-download:hover {
+    background: #b0b0b1;
+}
+
+.btn-download a {
+    text-decoration: none;
+    margin-left: 3px;
+    font-size: 16px;
+    color: rgb(10, 10, 10);
+    cursor: pointer;
+}
+
+.btn-download i {
+    margin: 3px;
+}
+
+
+/* report_it / add */
+.content-dashboard .report-data {
+    background: #b5cbcb;
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 5px;
+}
+
+.report-card {
+    background: white;
+    margin: 5px;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.report-card h2 {
+    margin-bottom: 30px;
+    margin-top: 10px;
+    border-bottom: black;
+}
+
+.report-card a {
+    text-decoration: none;
+    font-size: 70px;
+    font-weight: 600;
+    transition: 0.3s ease;
+    transition-delay: 0.1s;
+}
+
+.report-card a:hover {
+    font-size: 100px;
+    color: #87031d;
+}
+
+/* tutorial */
+.form-tutorial {
+    text-align: center;
+}
+
+.form-tutorial h1 {
+    color: #87031d;
+}
+
+
+
+/* ===============Halaman Notif=============== */
+.container-content {
+    /* display: flex; */
+    margin-top: 20px;
+}
+
+.content {
+    display: flex;
+    margin: 10px;
+    justify-content: end;
+    border-bottom: solid 1px black;
+}
+
+.content button {
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.content-1 {
+    display: flex;
+    flex-direction: column;
+    height: 330px;
+    width: 35%;
+    background: #f4feff;
+    margin-left: 10px;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.8);
+}
+
+.content-1 .card {
+    background: #084d19;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.content-1 .card h3 {
+    font-weight: 600;
+    font-size: large;
+    padding-left: 3px;
+    text-align: center;
+    padding-top: 3px;
+}
+
+.content-1 .card1 {
+    margin-top: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.content-1 .card1 label {
+    font-weight: 600;
+}
+
+.mb-3 {
+    text-align: center;
+}
+
+.content-2 {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background: #f4feff;
+    margin-left: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+    margin-right: 20px;
+    height: 500px;
+}
+
+.content-2 table {
+    font-size: small;
+    margin-top: 5px;
+
+}
+
+.content-2 table .notif {
+    background: #526379;
+    color: white;
+}
+
+.content-2 table .nama-notif {
+    font-size: small;
+    font-weight: 600;
+}
+
+.content-2 table .action {
+    font-size: smaller;
+}
+
+.textarea {
+    /* height: 100px; */
+    font-size: small;
+    display: block;
+    padding: 0;
+}
+
+.label1 p{
+    color: #b76903;
+    font-weight: 600;
+}
+
+/* Menyesuaikan gaya tombol DataTables */
+.dt-buttons {
+    margin-bottom: 10px; /* Jarak antara tombol dan tabel */
+}
+
+/* Mengatur gaya untuk setiap tombol */
+.dt-button {
+    background-color: #039076; /* Warna latar belakang tombol */
+    color: #fff; /* Warna teks tombol */
+    border: 1px solid #039076; /* Warna garis tepi tombol */
+    border-radius: 5px; /* Sudut bulat untuk tombol */
+    padding: 5px 10px; /* Ruang dalam tombol */
+    margin-right: 5px; /* Jarak antara tombol */
+}
+
+/* Mengubah tampilan tombol saat dihover */
+.dt-button:hover {
+    background-color: #015344; /* Warna latar belakang tombol saat dihover */
+    border-color: #015344; /* Warna garis tepi tombol saat dihover */
+    color: #fff; /* Warna teks tombol saat dihover */
+}
