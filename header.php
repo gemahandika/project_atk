@@ -34,7 +34,7 @@ $data1 = $sql->fetch_array();
 <body>
 
     <div class="danger">
-        <p><strong>Oopppssss!!!</strong> Tidak Bisa di buka di Handphone</p>
+        <p><strong>Oopppssss!!</strong> Tidak Bisa di buka di Handphone</p>
         <a href="../login/logout.php">Log Out</a>
     </div>
 
